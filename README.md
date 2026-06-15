@@ -1,5 +1,5 @@
-# RIAN-1-PROJETO
-# 📚 RIAN-1-PROJETO
+# GRUPO-E-1-PROJETO
+# 📚 GRUPO-E-1-PROJETO
 
 ---
 
@@ -40,9 +40,13 @@ Criar uma aplicação organizada e documentada, permitindo que qualquer usuário
 
 ## 👨‍💻 Integrantes da Equipe
 
-* Rian Gomes
+* Rian
 
-*(adicione os demais integrantes, caso existam)*
+* Arthur
+
+* Guilherme
+
+*  Higor
 
 ---
 
