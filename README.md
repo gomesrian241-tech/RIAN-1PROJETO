@@ -1,3 +1,15 @@
+# SIRCA — Equipe E — Ciclo 2
+
+O componente Python, os testes, os scripts SQL e o notebook estão em **[sirca/](sirca/README.md)**.
+
+**[Abrir no Google Colab](https://colab.research.google.com/github/gomesrian241-tech/RIAN-1PROJETO/blob/main/sirca/SIRCA_Equipe_E_Ciclo_2.ipynb)**
+
+A base do caso tem uso restrito e não está publicada neste repositório público. Consulte as instruções em `sirca/README.md` para execução e caminhos no PDF. A equipe ainda precisa revisar o PDF e registrar suas contribuições reais.
+
+A página HTML anterior continua em [3.1 index.html](3.1%20index.html), com `style.css`. A documentação anterior segue abaixo, corrigida para os arquivos efetivamente existentes.
+
+---
+
 # GRUPO-E-1-PROJETO
 # 📚 GRUPO-E-1-PROJETO
 
@@ -19,7 +31,6 @@ Criar uma aplicação organizada e documentada, permitindo que qualquer usuário
 
 * HTML5
 * CSS3
-* JavaScript
 * Git
 * GitHub
 * Markdown
@@ -55,11 +66,9 @@ Criar uma aplicação organizada e documentada, permitindo que qualquer usuário
 ```text
 RIAN-1PROJETO/
 │
-├── index.html
+├── 3.1 index.html
 ├── style.css
-├── script.js
-├── imagens/
-│   └── tela-sistema.png
+├── sirca/
 └── README.md
 ```
 
@@ -82,15 +91,7 @@ cd RIAN-1PROJETO
 Abra o arquivo principal:
 
 ```bash
-index.html
-```
-
----
-
-## 🖼️ Imagem do Sistema
-
-```markdown
-![Tela do Sistema](imagens/tela-sistema.png)
+"3.1 index.html"
 ```
 
 ---
@@ -100,7 +101,7 @@ index.html
 * Implementar novas funcionalidades;
 * Melhorar a interface do usuário;
 * Tornar o sistema responsivo;
-* Adicionar banco de dados.
+* Integrar a página HTML ao componente, se fizer parte do escopo. A estrutura PostgreSQL do SIRCA está em `sirca/banco/`.
 
 ---
 

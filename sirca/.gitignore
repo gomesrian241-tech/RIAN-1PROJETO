@@ -1,0 +1,17 @@
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+.env
+*.env
+dados/
+evidencias/
+banco/02_carregar_dados.sql
+banco/semear_dump.sql
+banco/resultados/
+estudo/*.csv
+estudo/*.json
+estudo/*.xlsx
+entregas/
+documentos/fontes/
+*.zip

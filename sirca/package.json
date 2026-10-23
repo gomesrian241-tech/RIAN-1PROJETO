@@ -1,0 +1,1 @@
+{"name":"sirca-equipe-e-ciclo2","private":true,"type":"module","scripts":{"test:banco":"node scripts/verificar_banco.mjs"},"devDependencies":{"@electric-sql/pglite":"0.3.14"}}
