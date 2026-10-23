@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Testes de busca e ordenacao. Comecam falhando, por design."""
+"""Testes das buscas linear e binária e dos algoritmos de ordenação."""
 
 import os
 import sys

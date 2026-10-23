@@ -1,20 +1,34 @@
-# SIRCA — Equipe E — Ciclo 2
+# SIRCA — Ciclo 2
 
-Código do componente, tratamento auditável, estrutura PostgreSQL e consultas PN-01 a PN-05. Preparado com apoio de ChatGPT/Codex; revisão e responsabilidade acadêmica cabem à equipe. Este commit de preparação não comprova contribuições dos demais integrantes.
+Esta versão reúne o componente de organização e consulta, o tratamento da base, a estrutura do banco e as consultas PN-01 a PN-05. A forma mais simples de começar é pelo Colab.
 
-## Executar no Colab
+## Como executar no Colab
 
-[Abrir notebook](https://colab.research.google.com/github/gomesrian241-tech/RIAN-1PROJETO/blob/main/sirca/SIRCA_Equipe_E_Ciclo_2.ipynb). Execute as células em ordem. O notebook recebe os três arquivos brutos no ambiente temporário ou extrai apenas esses arquivos do pacote técnico ZIP fornecido à equipe. Não contém dados nem saídas previamente executadas. Não compartilhe uma cópia com dados ou saídas sem observar a autorização institucional. A execução em sessão real do Colab precisa ser conferida pela equipe.
+1. [Abra o notebook](https://colab.research.google.com/github/gomesrian241-tech/RIAN-1PROJETO/blob/main/sirca/SIRCA_Equipe_E_Ciclo_2.ipynb).
+2. Execute a primeira célula para preparar o ambiente.
+3. Execute os testes sem a base. São esperados 49 testes aprovados e dois testes de integração não selecionados.
+4. Envie os três arquivos originais juntos ou o pacote `SIRCA_EQUIPE_E_CICLO_2.zip` na etapa de envio.
+5. Continue para tratar os dados, rodar os 51 testes, conferir o banco e abrir o menu do componente.
 
-A base do caso, inclusive sintética, tem publicação restrita pela nota de proveniência, item 1. Dados, carga SQL, dump, planilhas preenchidas, resultados identificáveis e PDF com dados ficam no ambiente autorizado pelo professor. O GitHub público contém apenas os fontes. O `.gitignore` é uma prevenção local; não impede uploads manuais.
+O notebook está salvo sem saídas de execução. Os scripts foram conferidos localmente; a execução em uma sessão real do Colab ainda precisa ser validada pela equipe. Para carregar uma versão nova do código, reinicie o ambiente de execução e abra novamente o notebook atualizado.
 
-## Executar localmente
+## Como executar no computador
 
-Requer Python 3.11+ e, para conferir SQL, Node 18+. Da pasta `sirca`:
+São necessários Python 3.11 ou superior e Node 18 ou superior para a conferência SQL. Dentro da pasta `sirca`, instale as dependências:
 
 ```bash
 python -m pip install -r requirements.txt
-# Disponibilize os três arquivos autorizados em dados/brutos/ antes do tratamento.
+```
+
+Coloque os seguintes arquivos em `dados/brutos/`:
+
+- `Instituto_Semear_planilhas_operacionais_2024-2026.xlsx`
+- `frequencia_export_sistema_antigo.csv`
+- `doacoes_2026.csv`
+
+Depois execute:
+
+```bash
 python scripts/tratar_dados.py
 python -m pytest componente/testes -q
 python componente/src/main.py --resumo
@@ -25,31 +39,52 @@ python scripts/conferir_resultados.py
 python estudo/calcular.py
 ```
 
-Sem a base é possível rodar 49 testes de unidade:
+O menu fica aberto até a opção de saída. Depois de encerrá-lo, continue com os demais comandos.
+
+Para testar apenas as funções que não dependem da base:
 
 ```bash
 python -m pytest componente/testes -q -k 'not test_csv_igual_modelo_etl and not test_carga_balanco_sem_descartes_ocultos'
 ```
 
-Os dois testes restantes conferem a integração da carga e exigem a base. Após o tratamento, a suíte completa contém 51 testes. A conferência SQL usa PostgreSQL embarcado PGlite 0.3.14; não equivale a testar o PostgreSQL 16 do laboratório.
+## Tratamento e banco
 
-Arquivos esperados em `dados/brutos/`: `Instituto_Semear_planilhas_operacionais_2024-2026.xlsx`, `frequencia_export_sistema_antigo.csv` e `doacoes_2026.csv`. A referência de tratamento é 22/10/2026. O tratamento gera CSV, relatório de rejeições, conversões de presença, evidências e `banco/02_carregar_dados.sql` localmente. Não publique esses arquivos neste repositório público. O dump pode ser gerado localmente concatenando a criação e a carga, em banco vazio.
+O tratamento usa a referência de 22/10/2026 e mantém os arquivos brutos sem alterações. Cada linha recebe uma decisão. O relatório de rejeições informa o motivo de cada descarte, e as conversões de presença ficam registradas em arquivo próprio.
 
-## Caminhos para citar no PDF
+A carga gera os CSV tratados, as evidências e `banco/02_carregar_dados.sql`. O notebook também gera `banco/semear_dump.sql`, reunindo a criação e a carga para restauração em um banco vazio.
+
+Para usar PostgreSQL instalado, execute os scripts de criação, carga e consulta nessa ordem, com `psql -v ON_ERROR_STOP=1`. Use um banco vazio ou um esquema dedicado. A carga não deve ser repetida sobre registros já existentes.
+
+A conferência automatizada usa PostgreSQL 17.5 embarcado no PGlite 0.3.14. Ela contém 17 verificações. As cinco consultas também são comparadas com cálculos feitos em Python. Essa conferência não substitui a validação no PostgreSQL 16 do laboratório.
+
+## Como o componente funciona
+
+- A lista guarda os registros carregados dos CSV tratados.
+- O índice por código permite localizar cadastros; a busca por nome usa uma lista ordenada e considera o nome completo após normalização.
+- Duas pilhas controlam desfazer e refazer lançamentos da sessão.
+- Duas filas organizam o atendimento, preservando a ordem de chegada dentro dos grupos prioritário e comum.
+
+O componente lê os CSV e não acessa diretamente o banco. Os novos lançamentos ficam em memória. Para guardá-los, use a opção 11 do menu antes de sair; a exportação gera um JSON e não altera automaticamente o banco ou os CSV.
+
+## Arquivos para citar no PDF
 
 | Material | Caminho neste repositório |
 |---|---|
 | Notebook | `sirca/SIRCA_Equipe_E_Ciclo_2.ipynb` |
-| Código | `sirca/componente/src/` |
+| Código do componente | `sirca/componente/src/` |
 | Testes | `sirca/componente/testes/` |
-| Tratamento e rejeições | `sirca/scripts/tratar_dados.py` |
+| Tratamento dos dados | `sirca/scripts/tratar_dados.py` |
 | Estrutura do banco | `sirca/banco/01_criar_tabelas.sql` |
-| Consultas | `sirca/banco/consultas/` |
-| Conferência SQL | `sirca/scripts/verificar_banco.mjs` |
-| Modelo quantitativo | `sirca/estudo/calcular.py` |
+| Consultas de negócio | `sirca/banco/consultas/` |
+| Conferência do banco | `sirca/scripts/verificar_banco.mjs` |
+| Cálculo quantitativo | `sirca/estudo/calcular.py` |
 
-Para dados, carga, dump, planilha preenchida, atas e PDF, informe no documento o link real da pasta autorizada pelo professor e o respectivo caminho. Os antigos caminhos sem `sirca/` precisam desse prefixo quando apontarem para este GitHub. A equipe ainda precisa atualizar os links no PDF, confirmar nomes completos, papéis, atas e evidências de participação. O README anterior lista Higor; confirme a composição efetiva e ajuste a folha de rosto antes da entrega.
+Dados, carga SQL, dump, resultados, planilha preenchida e PDF ficam no local autorizado pelo professor. Indique também esse link e os respectivos caminhos no documento. A planilha preenchida e o PDF estão no pacote técnico da equipe; o notebook não recria esses dois documentos.
 
-## Limites do componente
+## Antes de entregar
 
-O terminal lê os CSV tratados; não se conecta diretamente ao banco. Novos lançamentos ficam em memória e precisam ser exportados pelo menu antes de sair. A busca por nome é exata após normalização. As duas pilhas oferecem desfazer/refazer; as duas filas mantêm prioridade e ordem de chegada. Tempos humanos e custos do estudo são hipóteses ilustrativas, não medições da equipe.
+Confira os nomes completos, os papéis do ciclo, os links, as atas e os registros de participação. A composição da folha de rosto precisa corresponder à equipe atual. Os tempos humanos e custos do estudo são cenários ilustrativos e devem permanecer identificados dessa forma.
+
+A nota de proveniência da base, item 1, restringe sua publicação. Não envie os dados a este repositório público. O `.gitignore` ajuda no uso local do Git, mas não bloqueia uploads manuais. Revise as saídas do Colab antes de compartilhar ou salvar uma cópia.
+
+Houve apoio de ChatGPT/Codex na preparação e revisão, conforme a declaração do PDF.

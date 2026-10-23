@@ -1,152 +1,33 @@
-# SIRCA — Equipe E — Ciclo 2
+# SIRCA — Equipe E
 
-O componente Python, os testes, os scripts SQL e o notebook estão em **[sirca/](sirca/README.md)**.
+Este repositório reúne o código do ciclo 2 do SIRCA, projeto baseado no caso do Instituto Semear. O componente permite organizar cadastros, consultar históricos, registrar presenças durante uma sessão e controlar a fila de atendimento.
 
-**[Abrir no Google Colab](https://colab.research.google.com/github/gomesrian241-tech/RIAN-1PROJETO/blob/main/sirca/SIRCA_Equipe_E_Ciclo_2.ipynb)**
+[Abrir no Google Colab](https://colab.research.google.com/github/gomesrian241-tech/RIAN-1PROJETO/blob/main/sirca/SIRCA_Equipe_E_Ciclo_2.ipynb) · [Instruções de execução](sirca/README.md)
 
-A base do caso tem uso restrito e não está publicada neste repositório público. Consulte as instruções em `sirca/README.md` para execução e caminhos no PDF. A equipe ainda precisa revisar o PDF e registrar suas contribuições reais.
+## O que está disponível
 
-A página HTML anterior continua em [3.1 index.html](3.1%20index.html), com `style.css`. A documentação anterior segue abaixo, corrigida para os arquivos efetivamente existentes.
+- Componente em Python com lista, índice por código, busca por nome, pilhas de desfazer/refazer e filas de atendimento.
+- Tratamento dos dados com registro de rejeições e conversões das marcas de presença.
+- Estrutura do banco PostgreSQL e consultas PN-01 a PN-05.
+- Testes do componente e scripts de conferência dos resultados.
+- Notebook para executar as etapas no Colab.
 
----
+O código está na pasta `sirca/`. Os caminhos dos arquivos e as instruções estão no [README do SIRCA](sirca/README.md).
 
-# GRUPO-E-1-PROJETO
-# 📚 GRUPO-E-1-PROJETO
+## Integrantes
 
----
+Rian, Arthur, Guilherme e Higor, conforme o cadastro atual deste repositório. Os nomes completos e os papéis do ciclo devem constar na folha de rosto da entrega.
 
-## 📌 Descrição
+## Dados e entrega
 
-Projeto desenvolvido para fins acadêmicos, utilizando os conceitos de versionamento com Git e GitHub e documentação em Markdown.
+A base fornecida pela disciplina tem uso restrito. Por isso, os dados e os arquivos que contêm seus registros ficam no ambiente autorizado pelo professor. No Colab, a base é enviada durante a execução.
 
----
+O PDF deve indicar o link deste repositório e o local autorizado dos demais materiais. Cada integrante precisa registrar suas próprias contribuições; um envio inicial não comprova o trabalho de toda a equipe.
 
-## 🎯 Objetivo
+## Página HTML
 
-Criar uma aplicação organizada e documentada, permitindo que qualquer usuário compreenda o funcionamento do projeto e consiga executá-lo facilmente.
+A [página HTML inicial](3.1%20index.html) e o arquivo `style.css` foram mantidos. Essa página pode ser aberta no navegador e ainda não está integrada ao componente Python.
 
----
+## Apoio utilizado
 
-## 🚀 Tecnologias Utilizadas
-
-* HTML5
-* CSS3
-* Git
-* GitHub
-* Markdown
-
----
-
-## ⚙️ Funcionalidades
-
-✅ Interface simples e intuitiva;
-
-✅ Organização dos arquivos do projeto;
-
-✅ Versionamento utilizando Git;
-
-✅ Documentação completa através do README.
-
----
-
-## 👨‍💻 Integrantes da Equipe
-
-* Rian
-
-* Arthur
-
-* Guilherme
-
-*  Higor
-
----
-
-## 📂 Estrutura do Projeto
-
-```text
-RIAN-1PROJETO/
-│
-├── 3.1 index.html
-├── style.css
-├── sirca/
-└── README.md
-```
-
----
-
-## ▶️ Como Executar
-
-Clone o repositório:
-
-```bash
-git clone https://github.com/gomesrian241-tech/RIAN-1PROJETO.git
-```
-
-Entre na pasta do projeto:
-
-```bash
-cd RIAN-1PROJETO
-```
-
-Abra o arquivo principal:
-
-```bash
-"3.1 index.html"
-```
-
----
-
-## 🔮 Futuras Melhorias
-
-* Implementar novas funcionalidades;
-* Melhorar a interface do usuário;
-* Tornar o sistema responsivo;
-* Integrar a página HTML ao componente, se fizer parte do escopo. A estrutura PostgreSQL do SIRCA está em `sirca/banco/`.
-
----
-
-## 🤝 Contribuições
-
-1. Faça um Fork do projeto;
-2. Crie uma branch:
-
-```bash
-git checkout -b minha-feature
-```
-
-3. Faça suas alterações;
-
-```bash
-git commit -m "Nova funcionalidade"
-```
-
-4. Envie para o GitHub:
-
-```bash
-git push origin minha-feature
-```
-
-5. Abra um Pull Request.
-
----
-
-## 📜 Licença
-
-Projeto desenvolvido exclusivamente para fins acadêmicos.
-
----
-
-## 🔗 Repositório
-
-https://github.com/gomesrian241-tech/RIAN-1PROJETO
-
----
-
-## ⭐ Badges
-# 📚 RIAN-1-PROJETO
-
-![GitHub last commit](https://img.shields.io/github/last-commit/gomesrian241-tech/RIAN-1PROJETO)
-![GitHub repo size](https://img.shields.io/github/repo-size/gomesrian241-tech/RIAN-1PROJETO)
-![GitHub top language](https://img.shields.io/github/languages/top/gomesrian241-tech/RIAN-1PROJETO)
-![GitHub issues](https://img.shields.io/github/issues/gomesrian241-tech/RIAN-1PROJETO)
-![GitHub stars](https://img.shields.io/github/stars/gomesrian241-tech/RIAN-1PROJETO?style=social)
+ChatGPT/Codex foi utilizado na preparação e revisão de código e documentação. A declaração detalhada faz parte do PDF. A equipe deve conferir a execução e revisar o material antes da entrega.

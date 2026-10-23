@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Testes do carregador.
 
-Estes testes FALHAM de proposito no inicio do semestre. Faze-los passar e
-parte do trabalho. Nao altere o que o teste espera: implemente o codigo.
+Os casos verificam a normalização de texto, datas e marcas de presença.
+As expectativas originais do material da disciplina foram mantidas.
 
 Execute a partir da raiz do repositorio:
     pytest componente/testes -v
