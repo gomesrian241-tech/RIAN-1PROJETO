@@ -16,7 +16,7 @@ O código está na pasta `sirca/`. Os caminhos dos arquivos e as instruções es
 
 ## Integrantes
 
-Rian, Arthur, Guilherme e Higor, conforme o cadastro atual deste repositório. Os nomes completos e os papéis do ciclo devem constar na folha de rosto da entrega.
+Rian, Arthur e Guilherme. Os nomes completos e os papéis do ciclo devem constar na folha de rosto da entrega.
 
 ## Dados e entrega
 
