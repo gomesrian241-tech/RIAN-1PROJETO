@@ -1,4 +1,4 @@
-# SIRCA — Equipe E
+# SIRCA — Equipe  E
 
 Este repositório reúne o código do ciclo 2 do SIRCA, projeto baseado no caso do Instituto Semear. O componente permite organizar cadastros, consultar históricos, registrar presenças durante uma sessão e controlar a fila de atendimento.
 
